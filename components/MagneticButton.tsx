@@ -13,21 +13,22 @@ export default function MagneticButton({
   href,
   onClick,
 }: MagneticButtonProps) {
-  const ref = useMagnetic();
+  const buttonRef = useMagnetic<HTMLButtonElement>();
+  const anchorRef = useMagnetic<HTMLAnchorElement>();
 
   const buttonClass =
     "inline-block relative px-8 py-4 border border-[var(--accent)] rounded-md font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white transition-all duration-300";
 
   if (href) {
     return (
-      <a ref={ref} href={href} className={buttonClass}>
+      <a ref={anchorRef} href={href} className={buttonClass}>
         {children}
       </a>
     );
   }
 
   return (
-    <button ref={ref} onClick={onClick} className={buttonClass}>
+    <button ref={buttonRef} onClick={onClick} className={buttonClass}>
       {children}
     </button>
   );
