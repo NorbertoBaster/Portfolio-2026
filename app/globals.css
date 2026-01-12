@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7f7f5;      /* soft off-white background */
+  --text: #1a1a1a;    /* main text */
+  --muted: #6b6b6b;   /* secondary text */
+  --accent: #111111;  /* highlights / headings */
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:root {
+  --font-inter: sans-serif;
+  --font-playfair: serif;
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-playfair);
+  letter-spacing: -0.025em;
+}
