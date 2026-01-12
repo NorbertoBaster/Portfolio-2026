@@ -1,9 +1,6 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 
-// Union type: can be used for button or anchor
-export default function useMagnetic<T extends HTMLButtonElement | HTMLAnchorElement>() {
+export default function useMagnetic<T extends HTMLElement>() {
   const ref = useRef<T>(null);
 
   useEffect(() => {
@@ -18,16 +15,15 @@ export default function useMagnetic<T extends HTMLButtonElement | HTMLAnchorElem
     };
 
     const handleMouseLeave = () => {
-      if (!element) return;
       element.style.transform = "translate(0px, 0px)";
     };
 
     element.addEventListener("mousemove", handleMouseMove as EventListener);
-    element.addEventListener("mouseleave", handleMouseLeave);
+    element.addEventListener("mouseleave", handleMouseLeave as EventListener);
 
     return () => {
       element.removeEventListener("mousemove", handleMouseMove as EventListener);
-      element.removeEventListener("mouseleave", handleMouseLeave);
+      element.removeEventListener("mouseleave", handleMouseLeave as EventListener);
     };
   }, []);
 
